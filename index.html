@@ -55,10 +55,11 @@
 
         <div class="col-8 border border-dark p-3">
           <h3 id="city-date">City Name & Date</h3>
-          <ul class="list-group list-style=none" id="weather-details"></ul>
-          <li>Temp:</li>
-          <li>Wind:</li>
-          <li>Humidity:</li>
+          <ul class="list-group" id="weather-details"></ul>
+          <!-- <li>${cityData.temp}</li> -->
+          <li id="city-temp">Temp:</li>
+          <li id="city-wind">Wind:</li>
+          <li id="city-humidity">Humidity:</li>
         </div>
 
         <div class="col-4">
@@ -69,17 +70,19 @@
                 <button id="search-button" value="Search" class="btn btn-secondary col-12">
                   Search
                 </button>
+
+                <h3 id="5-Day-Forecast" class="ml-5">5-Day Forecast:</h3>
+                
               </div>
             </form>
           </div>
 
-        <div class="col-8 d-flex justify-content-start py-3 pr-5">
-          <h3>5-Day Forecast:</h3>
+        <div class="col-8 d-flex justify-content-start py-3 pr-5 mr-5">
+          <!-- <h3 id="5-Day-Forecast" class="ml-5">5-Day Forecast:</h3> -->
           <!-- <ul class="list-group list-style=none" id="weather-details"></ul> -->
-        </div>
-    </div>
-</div>
-          <div class="5-day-container col-8 justify-content-end">
+   
+
+          <div class="5-day-container col-10 mt-0 mr-3 p-0">
             <div class="row justify-content-end">
               <div class="col-sm border p-3 m-2 bg-info text-light">
                 Day 1
@@ -131,7 +134,10 @@
               </div>
             </div>
         </div>
-            
+        
+      </div>
+      </div>
+    </div>
         
       </div>
     </div>
