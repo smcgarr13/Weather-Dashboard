@@ -1,5 +1,7 @@
 var APIKey = "15404f18b3dbebed7c99306dd880766d";
 var city = "Los Angeles";
+var buttonDiv = $("#button-div");
+var cities = JSON.parse(localStorage.getItem("cities"))||[];
 
 // api.openweathermap.org/data/2.5/weather?q={city}&appid={APIKey}
 
@@ -9,9 +11,7 @@ var city = "Los Angeles";
 
 href="https://api.openweathermap.org/data/2.5/forecast?lat=57&lon=-2.15&appid={APIKey}&units=imperial";
 
-
-
-
+   
 
 // var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 
@@ -31,6 +31,14 @@ href="https://api.openweathermap.org/data/2.5/forecast?lat=57&lon=-2.15&appid={A
 // var weatherDetails = document.querySelector("#weather-details")
 
  $(document).ready(function() {
+
+   for (let i = 0; i < cities.length; i++) {
+      var button = $("<button>");
+   button.text(cities[i]);
+   buttonDiv.append(button);
+   buttonDiv.on("click", getWeather)
+   };
+
     // add listner for click events
     var searchButton = $("#search-button")
     searchButton.on("click", getWeather)
@@ -38,9 +46,25 @@ href="https://api.openweathermap.org/data/2.5/forecast?lat=57&lon=-2.15&appid={A
 function getWeather(event) {
     event.preventDefault();
     console.log("Button Works!!");
+    console.log(event);
+    if (event.target.innerText != "Search") {
+      city = event.target.innerText;
+    }
+    else {
+      city = $("#city-name").val();
+    }
+    console.log(city);
 //   console.log($(this).prev().val());
 // save to local storage
-city = $("#city-name").val();
+if(cities.includes(city)==false || city == ""){
+   var button = $("<button>");
+   button.text(city);
+   buttonDiv.append(button);
+   cities.push(city);
+   localStorage.setItem("cities", JSON.stringify(cities))
+}
+
+$("#city-name").val("");
 var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 
 
@@ -119,3 +143,4 @@ fetch(queryURL).then((response) => {
 // })
 // //   localStorage.setItem(weatherDetails, $(this).prev().val());
 // });
+
