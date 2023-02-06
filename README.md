@@ -23,7 +23,7 @@ N/A
 Please refer to the LICENSE in the repo.
 
 ## Mock-up Reference:
-
+<img width="983" alt="Weather_Dashboard_Screenshot" src="https://user-images.githubusercontent.com/117788958/216857003-f5d4c43c-4566-484c-8fed-bb791213281e.png">
 
 ## Deployed Website:
 https://smcgarr13.github.io/Weather-Dashboard/
